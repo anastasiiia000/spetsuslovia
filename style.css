@@ -1,0 +1,1104 @@
+
+:root{--paper:#f1eee6;--paper2:#e8e3d8;--ink:#20283a;--muted:#6f7280;--coral:#e88c73;--coral-dark:#c96f5a;--lilac:#a99bc9;--blue:#9dbfce;--green:#cbd29a;--yellow:#ebd18b;--white:#fbfaf6;--line:rgba(32,40,58,.16);--serif:'Playfair Display',Georgia,'Times New Roman',serif;--sans:'DM Sans',Arial,sans-serif}
+*{box-sizing:border-box}html{background:var(--paper);scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
+.deck{height:100svh;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}.deck::-webkit-scrollbar{display:none}
+.slide{height:100svh;min-height:100svh;width:100%;display:grid;place-items:center;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
+.frame{width:min(100vw,calc(100svh * 16 / 9));height:min(100svh,calc(100vw * 9 / 16));aspect-ratio:16/9;position:relative;overflow:hidden;padding:5.2% 6.4% 4.8%;display:flex;flex-direction:column;gap:3.1%;background:var(--paper)}
+.eyebrow{font-size:clamp(9px,.72vw,12px);font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-dark);margin:0 0 1.05em}
+h1,h2,h3,p{margin-top:0}h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.045em;line-height:.98}h1{font-size:clamp(52px,6.2vw,96px);margin:0}h2{font-size:clamp(34px,3.8vw,60px);margin:0 0 .22em}h1 em,h2 em,.accent{color:var(--coral-dark);font-style:italic}
+.lead{font-size:clamp(13px,1.12vw,18px);line-height:1.45;color:var(--muted);max-width:57ch;margin:0}.slide-head{flex:0 0 auto;max-width:79%}.slide-head.wide{max-width:100%}.body-area{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.body-area > .grid{flex:1 1 0%;height:auto;min-height:0}.center-y{display:flex;flex-direction:column;justify-content:center}
+.grid{display:grid;gap:clamp(10px,1.15vw,18px);height:100%;min-height:0}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.two-one{grid-template-columns:1.08fr .92fr}.grid.one-two{grid-template-columns:.9fr 1.1fr}
+.card{min-width:0;border-radius:17px;padding:clamp(15px,1.55vw,25px);display:flex;flex-direction:column;justify-content:center;gap:clamp(6px,.7vw,11px);background:rgba(255,255,255,.58);border:1px solid rgba(32,40,58,.06)}
+.card.coral{background:#efd8cf}.card.lilac{background:#e3ddec}.card.blue{background:#dce8e9}.card.green{background:#e2e6cf}.card.yellow{background:#eee3c5}.card.ink{background:var(--ink);color:var(--white)}.card.paper{background:#e8e5dc}.card.soft{background:#f8f6f0}
+.card h3{font:500 clamp(18px,1.65vw,26px)/1.08 var(--serif);margin:0;letter-spacing:-.02em}.card p{font-size:clamp(11px,.92vw,15px);line-height:1.43;color:var(--muted);margin:0}.card.ink p{color:rgba(255,255,255,.76)}.card p strong{color:var(--ink)}.card.ink p strong{color:#fff}
+.card .tag{font-size:clamp(9px,.7vw,11px);font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--coral-dark)}.card.ink .tag{color:var(--yellow)}
+.card ul{margin:0;padding-left:1.1em;display:grid;gap:6px}.card li{font-size:clamp(10px,.84vw,14px);line-height:1.36;color:#565d6a}.card.ink li{color:rgba(255,255,255,.82)}
+.ribbon{flex:0 0 auto;border-top:1px solid var(--line);padding-top:clamp(9px,.9vw,14px);font:italic clamp(16px,1.55vw,24px)/1.2 var(--serif);color:var(--ink)}.ribbon em{color:var(--coral-dark)}
+.big-number{font:italic clamp(32px,4vw,62px)/.95 var(--serif);color:var(--coral-dark);letter-spacing:-.04em}.micro{font-size:clamp(9px,.72vw,12px);line-height:1.35;color:var(--muted)}
+.pill-row{display:flex;gap:8px;flex-wrap:wrap}.pill{border-radius:999px;padding:7px 12px;background:#e8d6ce;font:italic clamp(11px,.9vw,14px) var(--serif)}.pill:nth-child(2){background:#e2dced}.pill:nth-child(3){background:#dce5df}.pill:nth-child(4){background:#eee3c5}
+.numbered{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}.numbered .item{position:relative;padding:15px 18px 0 0;display:flex;flex-direction:column;gap:6px}.numbered .item:not(:last-child):after{content:'';position:absolute;right:15px;top:-4px;width:7px;height:7px;border-radius:50%;background:var(--coral)}.numbered small{font-size:9px;letter-spacing:.14em;color:var(--coral-dark);font-weight:700}.numbered b{font:500 clamp(16px,1.4vw,22px) var(--serif)}.numbered span{font-size:clamp(10px,.8vw,13px);line-height:1.35;color:var(--muted)}
+.quote-panel{padding:clamp(19px,2.1vw,34px);border-radius:18px;background:#e9d5cc;display:flex;flex-direction:column;justify-content:center}.quote-panel p{font:italic clamp(25px,2.8vw,44px)/1.06 var(--serif);letter-spacing:-.03em;margin:0}.quote-panel p em{color:var(--coral-dark)}
+.bullet-line{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}.bullet-line:last-child{border-bottom:0}.bullet-line i{width:9px;height:9px;flex:0 0 auto;border-radius:50%;background:var(--coral);margin-top:5px}.bullet-line b{font:500 clamp(15px,1.2vw,19px) var(--serif);display:block;margin-bottom:4px}.bullet-line span{display:block;color:var(--muted);font-size:clamp(10px,.82vw,13px);line-height:1.4}
+.cover .frame{background:#eee9df;padding:0}.cover-copy{position:absolute;left:8%;top:11%;bottom:12%;width:47%;display:flex;flex-direction:column;justify-content:center;z-index:2}.cover-copy .eyebrow{color:var(--ink);margin-bottom:1.4em}.cover-subtitle{font:400 clamp(21px,2vw,32px)/1.2 var(--serif);color:#626575;margin:.55em 0 1em 2px;max-width:24ch}.cover-rule{display:flex;gap:7px;width:94px;margin-top:1em}.cover-rule span{height:5px;border-radius:9px;flex:1;background:var(--coral)}.cover-rule span:nth-child(2){background:var(--lilac)}.cover-rule span:nth-child(3){background:var(--green)}
+.cover-art{position:absolute;right:3%;top:8%;width:49%;height:84%;display:grid;place-items:center}.orbit{position:absolute;border:1px solid rgba(32,40,58,.28);border-radius:50%}.orbit.a{width:77%;height:64%;transform:rotate(-24deg)}.orbit.b{width:91%;height:43%;transform:rotate(31deg);border-color:rgba(201,111,90,.55)}.orbit.c{width:55%;height:91%;transform:rotate(56deg);border-style:dashed;border-color:rgba(169,155,201,.8)}.core{width:36%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:var(--coral);color:var(--white);font:italic clamp(34px,4vw,62px) var(--serif);box-shadow:18px 18px 0 rgba(32,40,58,.07);transform:rotate(-9deg);z-index:1}.orbit-word{position:absolute;font:italic clamp(15px,1.25vw,20px) var(--serif)}.w1{top:14%;right:22%}.w2{bottom:18%;left:12%;color:var(--coral-dark)}.w3{right:3%;bottom:35%;color:#756b99}.dot{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--green)}.d1{top:18%;left:22%}.d2{right:8%;top:47%;background:var(--lilac)}.d3{left:24%;bottom:10%;background:var(--blue)}
+/* individual compositions */
+.spectrum-grid{grid-template-columns:1fr 1fr}.spectrum-card{position:relative;overflow:hidden;padding-top:30px}.spectrum-card:before{content:'';position:absolute;width:150px;height:150px;border:1px solid rgba(32,40,58,.15);border-radius:50%;right:-35px;top:-60px}.spectrum-card h3{max-width:19ch}.spectrum-card .range{font:italic clamp(15px,1.3vw,21px) var(--serif);color:var(--coral-dark)}
+.triad{grid-template-columns:repeat(3,minmax(0,1fr));height:56%}.triad .card{position:relative;overflow:hidden}.triad .card:after{content:'';position:absolute;width:100px;height:100px;border:1px solid rgba(32,40,58,.16);border-radius:50%;right:-24px;bottom:-32px}.triad-label{display:flex;align-items:center;gap:12px}.triad-label i{width:12px;height:12px;border-radius:50%;background:var(--blue)}.triad .card:nth-child(2) .triad-label i{background:var(--coral)}.triad .card:nth-child(3) .triad-label i{background:var(--lilac)}
+.feature-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.feature-strip span{background:rgba(255,255,255,.54);border-radius:11px;padding:11px 14px;font-size:clamp(10px,.8vw,13px);line-height:1.35;color:#555c68}
+.behavior-grid{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}.behavior-grid .card{position:relative;padding-left:28px}.behavior-grid .card:before{content:'';position:absolute;left:0;top:17%;bottom:17%;width:4px;border-radius:4px;background:var(--coral)}.behavior-grid .card:nth-child(2):before{background:var(--lilac)}.behavior-grid .card:nth-child(3):before{background:var(--blue)}.behavior-grid .card:nth-child(4):before{background:var(--green)}
+.law-grid{grid-template-columns:1.02fr 1fr 1fr;height:53%}.law-card .law-code{font:italic clamp(23px,2.1vw,33px) var(--serif);color:var(--coral-dark)}.variants{margin-top:16px;padding:14px 18px;border-radius:14px;background:#e5e1d8;display:flex;justify-content:space-between;align-items:center;gap:16px}.variants strong{font:500 clamp(16px,1.25vw,20px) var(--serif)}.variant-chips{display:flex;gap:7px;align-items:center}.variant-chips span{padding:7px 10px;background:var(--white);border-radius:8px;font:italic 14px var(--serif)}.variant-chips span:first-child,.variant-chips span:last-child{background:#ecd4cb;color:var(--coral-dark)}
+.organize-steps{margin-bottom:16px}.org-bottom{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:center}.org-note{border-left:3px solid var(--coral);padding:8px 0 8px 16px;font-size:clamp(10px,.82vw,13px);line-height:1.45;color:var(--muted)}
+.schedule-layout{grid-template-columns:.82fr 1.18fr}.schedule-board{background:#faf8f2;border-radius:18px;padding:20px 22px;transform:rotate(-1.1deg);box-shadow:8px 9px 0 rgba(32,40,58,.07);display:flex;flex-direction:column;justify-content:center}.board-title{font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--coral-dark);font-weight:700;margin-bottom:14px}.schedule-step{display:grid;grid-template-columns:34px 1fr auto;gap:9px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(32,40,58,.12);font-size:clamp(11px,.86vw,14px)}.schedule-step:last-child{border:0}.schedule-step i{width:29px;height:29px;border-radius:8px;background:#efd5ca;display:grid;place-items:center;font-style:normal;color:#9b5d4c}.schedule-step:nth-child(3) i{background:#e2dced}.schedule-step:nth-child(4) i{background:#dce7e7}.schedule-step:nth-child(5) i{background:#e8e4c9}.schedule-step small{color:var(--muted);font-size:10px}.schedule-points{display:grid;grid-template-columns:1fr 1fr;gap:12px}.schedule-points .card{min-height:0}.schedule-foot{margin-top:12px;padding:12px 15px;border-radius:12px;background:#e3e1d9;color:#646a77;font-size:clamp(10px,.8vw,13px);line-height:1.4}
+.visual-support{grid-template-columns:.8fr 1.2fr}.plan-card{background:#e1dfd8;padding:20px;border-radius:17px;display:flex;flex-direction:column;justify-content:center}.plan-task{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:clamp(11px,.9vw,14px)}.plan-task:last-child{border:0}.plan-task i{width:23px;height:23px;border-radius:6px;background:#efd5ca;display:grid;place-items:center;font-style:normal;color:var(--coral-dark)}.plan-task.done{color:#777b82;text-decoration:line-through}.visual-stack{display:flex;flex-direction:column;justify-content:center;gap:11px}.visual-stack .card{flex:1}
+.demonstration-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.demonstration-grid .card{justify-content:space-between}.demo-mark{font:italic clamp(26px,3vw,46px) var(--serif);color:var(--coral-dark);opacity:.9}
+.method-layout{grid-template-columns:1fr 1fr}.method-layout .card{gap:10px}.mini-label{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral-dark);font-weight:700}.subcards{display:grid;grid-template-columns:1fr 1fr;gap:8px}.subcard{border-radius:10px;background:rgba(255,255,255,.62);padding:11px}.subcard b{font:500 clamp(13px,1.05vw,17px) var(--serif);display:block;margin-bottom:4px}.subcard span{font-size:clamp(10px,.77vw,12px);line-height:1.35;color:var(--muted)}
+.transition-grid{grid-template-columns:.88fr 1.12fr}.transition-timeline{display:grid;grid-template-columns:1fr 1fr;gap:10px}.time-card{background:#e9d8cf;border-radius:13px;padding:15px;display:flex;flex-direction:column;justify-content:center}.time-card:nth-child(2){background:#e2dced}.time-card strong{font:italic clamp(25px,2.4vw,37px) var(--serif);color:var(--coral-dark)}.time-card span{font-size:clamp(10px,.8vw,13px);color:var(--muted);line-height:1.35}
+.speech-grid{grid-template-columns:.83fr 1.17fr}.speech-orbit{background:#e7e4dc;border-radius:50%;width:min(30vw,310px);aspect-ratio:1;margin:auto;display:grid;place-items:center;position:relative}.speech-core{width:42%;aspect-ratio:1;border-radius:50%;background:var(--coral);color:white;display:grid;place-items:center;text-align:center;font:italic clamp(16px,1.5vw,23px) var(--serif);z-index:1;transform:rotate(-8deg)}.speech-word{position:absolute;border-radius:999px;background:#faf8f2;padding:7px 12px;font:italic clamp(11px,.9vw,14px) var(--serif)}.sw1{top:12%;left:24%}.sw2{top:30%;right:4%;background:#e2dced}.sw3{bottom:15%;right:18%;background:#dce6e4}.sw4{bottom:26%;left:2%;background:#eee3c5}
+.question-grid{grid-template-columns:1fr 1fr}.question-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}.question-list .subcard{display:flex;flex-direction:column;justify-content:center}.text-example{background:#e5e4dc;border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center}.text-example b{font:500 clamp(17px,1.45vw,23px) var(--serif);margin-bottom:9px}.text-example p{font-size:clamp(10px,.82vw,13px);line-height:1.42;color:var(--muted);margin:0}
+.planning-grid{grid-template-columns:1fr 1fr 1fr}.planning-grid .card{min-height:0}.condition{display:flex;gap:10px;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:clamp(10px,.8vw,13px);line-height:1.35;color:var(--muted)}.condition b{font:italic clamp(18px,1.5vw,24px) var(--serif);color:var(--coral-dark);white-space:nowrap}
+.subject-grid{grid-template-columns:1fr 1fr}.subject-grid .card{position:relative}.subject-symbol{font:italic clamp(25px,2.7vw,42px) var(--serif);color:var(--coral-dark);margin-bottom:3px}.subject-list{display:grid;grid-template-columns:1fr 1fr;gap:7px}.subject-list span{border-radius:9px;padding:8px 10px;background:rgba(255,255,255,.55);font-size:clamp(10px,.78vw,12px);line-height:1.3;color:#555c68}
+.language-grid{grid-template-columns:1fr 1fr}.language-grid .card{justify-content:flex-start}.lang-subject{display:inline-flex;align-self:flex-start;border-radius:999px;padding:6px 10px;background:#e8d6ce;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--coral-dark);font-weight:700}
+.space-grid{grid-template-columns:1fr 1fr}.space-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}.space-tiles span{border-radius:10px;padding:11px;background:rgba(255,255,255,.55);font:italic clamp(13px,1.1vw,17px) var(--serif)}.space-tiles span:last-child{grid-column:span 2;background:#dfe4cc}.tech-note{margin-top:10px;padding:11px 13px;border-left:3px solid var(--coral);background:rgba(255,255,255,.42);font-size:clamp(10px,.8vw,13px);line-height:1.4;color:var(--muted)}
+.peer-grid{grid-template-columns:.85fr 1.15fr}.peer-quote{font:italic clamp(26px,2.65vw,42px)/1.08 var(--serif);color:var(--ink);max-width:11ch}.peer-quote em{color:var(--coral-dark)}.peer-detail{display:grid;grid-template-columns:1fr 1fr;gap:10px}.peer-detail .card{min-height:0}.peer-guides{grid-column:1/-1;background:#e2e3d7;border-radius:13px;padding:13px 16px;font-size:clamp(10px,.82vw,13px);line-height:1.4;color:var(--muted)}
+.team-grid{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}.team-grid .card{padding-left:26px;position:relative}.team-grid .card:before{content:'';position:absolute;left:0;top:15%;bottom:15%;width:4px;border-radius:4px;background:var(--coral)}.team-grid .card:nth-child(2):before{background:var(--lilac)}.team-grid .card:nth-child(3):before{background:var(--blue)}.team-grid .card:nth-child(4):before{background:var(--green)}
+.environment-grid{grid-template-columns:.9fr 1.1fr}.zone-map{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr 1fr;gap:9px;min-height:0}.zone{border-radius:14px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;font:italic clamp(17px,1.5vw,24px) var(--serif)}.zone small{font:500 9px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:rgba(32,40,58,.56)}.zone.study{grid-row:span 2;background:#ead4ca}.zone.rest{background:#e2dced}.zone.move{background:#dce6e1}.environment-details{display:flex;flex-direction:column;justify-content:center;gap:10px}.environment-details .card{padding:14px 17px}.system-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.system-bar span{border-radius:10px;padding:10px 7px;text-align:center;background:#e8d5cc;font-size:clamp(9px,.72vw,11px);font-weight:700;line-height:1.25}.system-bar span:nth-child(2){background:#e2dced}.system-bar span:nth-child(3){background:#dce6e6}.system-bar span:nth-child(4){background:#e7e3c9}.system-bar span:nth-child(5){background:#dfe4cc}
+.progress{position:fixed;z-index:15;left:0;right:0;bottom:0;height:3px;background:rgba(32,40,58,.08);pointer-events:none}.progress span{display:block;height:100%;width:0;background:var(--coral-dark);transition:width .18s ease}
+@media(max-width:760px){.deck{scroll-snap-type:y proximity}.frame{width:100vw;height:100svh;aspect-ratio:auto;padding:28px 22px 36px;overflow-y:auto;gap:20px}.slide{height:100svh;min-height:100svh;overflow:hidden}h2{font-size:clamp(34px,8vw,48px)}.lead{font-size:14px}.slide-head{max-width:100%}.grid,.grid.two,.grid.three,.grid.four,.grid.two-one,.grid.one-two,.triad,.spectrum-grid,.law-grid,.behavior-grid,.schedule-layout,.visual-support,.demonstration-grid,.method-layout,.transition-grid,.speech-grid,.question-grid,.planning-grid,.subject-grid,.language-grid,.space-grid,.peer-grid,.team-grid,.environment-grid{grid-template-columns:1fr;grid-template-rows:auto;height:auto}.body-area{flex:0 0 auto}.card{min-height:130px}.card p{font-size:13px}.cover-copy{left:7%;top:8%;bottom:auto;width:86%}.cover h1{font-size:clamp(52px,14vw,76px)}.cover-art{width:86%;height:44%;right:5%;top:48%}.numbered{grid-template-columns:1fr 1fr;row-gap:12px}.numbered .item{padding-top:10px}.variants,.org-bottom{display:block}.variant-chips{margin-top:10px;flex-wrap:wrap}.schedule-points,.question-list,.subject-list,.peer-detail,.space-tiles{grid-template-columns:1fr}.peer-guides{grid-column:auto}.speech-orbit{width:230px}.zone-map{min-height:300px}.system-bar{grid-template-columns:1fr 1fr}.system-bar span:last-child{grid-column:span 2}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress span{transition:none}}
+
+
+
+/* Fit-safe refinements: keep every text block inside its own card and slide. */
+.frame{padding:4.6% 6.2% 4.2%;gap:2.45%}
+.body-area{min-width:0;min-height:0;gap:clamp(8px,.85vw,13px)}
+.body-area>.grid{flex:1 1 0%;height:auto;min-height:0;grid-auto-rows:minmax(0,1fr)}
+.grid{min-width:0;min-height:0}
+.grid>*{min-width:0;min-height:0}
+.card{min-width:0;min-height:0;overflow-wrap:break-word}
+.card p,.card li,.ribbon,.tech-note,.schedule-foot,.system-bar span{overflow-wrap:break-word}
+.ribbon{max-width:100%;min-width:0;white-space:normal;line-height:1.24;padding-top:clamp(7px,.7vw,11px);font-size:clamp(14px,1.28vw,20px)}
+.study-behavior .grid.four{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+.study-behavior .body-area{gap:clamp(8px,.8vw,12px)}
+.study-behavior .card{padding:clamp(12px,1.25vw,19px);gap:clamp(5px,.55vw,8px)}
+.study-behavior .card h3{font-size:clamp(16px,1.45vw,22px)}
+.study-behavior .card p{font-size:clamp(10px,.82vw,13px);line-height:1.34}
+.study-behavior .study-note{border:0;border-radius:12px;background:#e9d5cc;padding:10px 15px;line-height:1.25;font-size:clamp(13px,1.12vw,17px)}
+.change-slide .body-area{gap:clamp(8px,.8vw,12px)}
+.change-slide .visual-support{min-height:0;grid-template-rows:minmax(0,1fr)}
+.change-slide .visual-support>.card{min-height:0}
+.change-slide .visual-stack{min-height:0}
+.change-slide .visual-stack .card{min-height:0;padding:clamp(12px,1.25vw,19px);gap:6px}
+.change-slide .visual-stack .card h3{font-size:clamp(16px,1.4vw,22px)}
+.change-slide .visual-stack .card p{font-size:clamp(10px,.8vw,12.5px);line-height:1.34}
+.change-slide .change-note{border:0;border-radius:12px;background:#e9d5cc;padding:9px 14px;font-size:clamp(13px,1.08vw,16px);line-height:1.28}
+.schedule-slide .body-area{min-height:0}
+.schedule-slide .schedule-layout{grid-template-rows:minmax(0,1fr);min-height:0;align-items:stretch}
+.schedule-slide .schedule-board{min-height:0;padding:clamp(12px,1.35vw,19px)}
+.schedule-slide .schedule-step{padding:clamp(6px,.65vw,9px) 0}
+.schedule-slide .schedule-layout>div:last-child{display:flex;flex-direction:column;min-width:0;min-height:0}
+.schedule-slide .schedule-points{flex:1 1 auto;min-height:0;grid-template-rows:repeat(2,minmax(0,1fr));gap:clamp(7px,.75vw,11px)}
+.schedule-slide .schedule-points .card{min-height:0;padding:clamp(10px,1.05vw,16px);gap:clamp(4px,.45vw,7px)}
+.schedule-slide .schedule-points .card h3{font-size:clamp(16px,1.36vw,21px)}
+.schedule-slide .schedule-points .card p{font-size:clamp(10px,.78vw,12px);line-height:1.32}
+.schedule-slide .schedule-foot{flex:0 0 auto;margin-top:8px;padding:9px 12px;font-size:clamp(9px,.72vw,11px);line-height:1.3}
+.tech-slide .space-grid{grid-template-rows:minmax(0,1fr);min-height:0}
+.tech-slide .space-grid>.card{min-height:0;padding:clamp(12px,1.2vw,18px);gap:clamp(5px,.5vw,8px)}
+.tech-slide .space-tiles{gap:7px;margin-top:5px}
+.tech-slide .space-tiles span{padding:8px 10px;font-size:clamp(12px,1vw,15px);line-height:1.22}
+.tech-slide .tech-note{display:grid;grid-template-columns:minmax(170px,.34fr) minmax(0,1fr);align-items:center;gap:6px 14px;margin-top:8px;padding:10px 13px;line-height:1.34;font-size:clamp(10px,.78vw,12px)}
+.tech-slide .tech-note strong{font-size:clamp(12px,.95vw,14px);line-height:1.25;color:var(--ink)}
+.tech-slide .tech-note span{min-width:0}
+.final-slide .system-bar{display:flex;flex-wrap:nowrap;align-items:stretch;gap:8px;min-width:0}
+.final-slide .system-bar span{display:flex;flex:1 1 0;min-width:0;align-items:center;justify-content:center;padding:9px 8px;min-height:44px;font-size:clamp(9px,.7vw,11px);line-height:1.22;overflow-wrap:break-word;hyphens:manual}
+.final-slide .ribbon{font-size:clamp(13px,1.08vw,17px)}
+/* Automatic density steps handle smaller laptop viewports without clipping. */
+.frame.fit-tight{padding:4.15% 6.1% 3.8%;gap:1.9%}
+.frame.fit-tight h2{font-size:clamp(30px,3.35vw,51px)}
+.frame.fit-tight .lead{font-size:clamp(11px,.98vw,15px);line-height:1.35}
+.frame.fit-tight .card{padding:clamp(10px,1.05vw,16px);gap:5px}
+.frame.fit-tight .card h3{font-size:clamp(15px,1.3vw,20px)}
+.frame.fit-tight .card p,.frame.fit-tight .card li{font-size:clamp(9px,.74vw,11.5px);line-height:1.3}
+.frame.fit-tight .ribbon{font-size:clamp(12px,1.05vw,16px);padding-top:7px}
+.frame.fit-tight .schedule-foot,.frame.fit-tight .tech-note{font-size:clamp(9px,.7vw,10.5px);padding:8px 10px}
+.frame.fit-extra{padding:3.7% 5.8% 3.4%;gap:1.5%}
+.frame.fit-extra h2{font-size:clamp(28px,3.05vw,46px)}
+.frame.fit-extra .lead{font-size:clamp(10px,.88vw,13px)}
+.frame.fit-extra .card{padding:9px 11px;gap:4px}
+.frame.fit-extra .card h3{font-size:clamp(14px,1.18vw,18px)}
+.frame.fit-extra .card p,.frame.fit-extra .card li{font-size:clamp(8.5px,.68vw,10.5px);line-height:1.26}
+.frame.fit-extra .ribbon{font-size:clamp(11px,.95vw,14px)}
+@media(max-height:800px) and (min-width:761px){.frame{padding-top:4.1%;padding-bottom:3.8%;gap:2%}.slide-head .lead{font-size:clamp(11px,1vw,15px)}.schedule-slide .schedule-foot{font-size:10px}}
+@media(max-width:1000px) and (min-width:761px){.final-slide .system-bar{gap:5px}.final-slide .system-bar span{font-size:9px;padding:7px 5px}}
+@media(max-width:760px){
+ .study-behavior .grid.four{grid-template-columns:1fr;grid-template-rows:auto}
+ .study-behavior .study-note,.change-slide .change-note{font-size:14px}
+ .schedule-slide .schedule-layout{grid-template-columns:1fr;grid-template-rows:auto}
+ .schedule-slide .schedule-points{grid-template-rows:auto}
+ .tech-slide .tech-note{grid-template-columns:1fr}
+ .final-slide .system-bar{flex-wrap:wrap}
+ .final-slide .system-bar span{flex:1 1 calc(50% - 8px)}
+}
+
+
+/* Final micro-adjustments after viewport verification. */
+.schedule-slide .schedule-board{transform:none}
+.tech-slide .tech-note{font-size:clamp(11px,.85vw,13px)}
+.tech-slide .tech-note strong{font-size:clamp(13px,1vw,15px)}
+.final-slide .system-bar span{font-size:clamp(10px,.8vw,12px)}
+
+
+
+/* Editorial refinements requested for the latest review. */
+/* 1. General characteristics: make the two spectrum cards read as main content, not sparse labels. */
+.spectrum-slide .body-area{gap:clamp(10px,1.05vw,16px)}
+.spectrum-slide .spectrum-grid{flex:1 1 0%;min-height:0;align-items:stretch}
+.spectrum-slide .spectrum-card{padding:clamp(24px,2.45vw,36px);gap:clamp(10px,1.05vw,16px);justify-content:center}
+.spectrum-slide .spectrum-card .range{font-size:clamp(19px,1.65vw,25px);line-height:1.2;max-width:23ch}
+.spectrum-slide .spectrum-card h3{font-size:clamp(25px,2.25vw,34px);line-height:1.07;max-width:20ch}
+.spectrum-slide .spectrum-card p{font-size:clamp(15px,1.12vw,17px);line-height:1.48;max-width:52ch}
+.spectrum-slide .spectrum-card:before{width:clamp(150px,17vw,230px);height:clamp(150px,17vw,230px);right:-54px;top:-72px;border-width:1.5px;opacity:.9}
+.spectrum-slide .spectrum-card:after{content:"";position:absolute;right:clamp(35px,4vw,60px);top:clamp(35px,4vw,60px);width:13px;height:13px;border-radius:50%;background:rgba(201,111,90,.45);box-shadow:0 0 0 9px rgba(201,111,90,.09),0 0 0 20px rgba(201,111,90,.045);pointer-events:none}
+.spectrum-slide .schedule-foot{padding:clamp(12px,1.15vw,17px) clamp(16px,1.6vw,24px);font-size:clamp(13px,.98vw,15px);line-height:1.4}
+.spectrum-slide .schedule-foot strong{font-size:1.03em}
+
+/* 2. Psychological development: larger centered text and a linked three-sphere motif. */
+.mind-slide .body-area{gap:clamp(12px,1.2vw,18px)}
+.mind-slide .triad{height:auto;flex:1 1 0%;min-height:0;gap:clamp(12px,1.25vw,19px);position:relative;isolation:isolate}
+.mind-slide .triad:before{content:"";position:absolute;z-index:0;left:9%;right:9%;top:20%;bottom:23%;border:1.5px solid rgba(201,111,90,.25);border-radius:50%;transform:rotate(-5deg);pointer-events:none}
+.mind-slide .triad:after{content:"";position:absolute;z-index:0;left:17%;right:17%;top:27%;bottom:30%;border:1px dashed rgba(112,111,137,.23);border-radius:50%;transform:rotate(5deg);pointer-events:none}
+.mind-slide .triad .card{z-index:1;align-items:center;text-align:center;padding:clamp(18px,1.9vw,29px);gap:clamp(10px,1vw,15px)}
+.mind-slide .triad-label{display:flex;flex-direction:column;align-items:center;gap:clamp(9px,.85vw,13px)}
+.mind-slide .triad-label i{width:clamp(38px,3.6vw,54px);height:clamp(38px,3.6vw,54px);border-radius:50%;background:#9dbfce;position:relative;flex:0 0 auto;box-shadow:0 0 0 7px rgba(157,191,206,.16),0 0 0 14px rgba(157,191,206,.07)}
+.mind-slide .triad-label i:after{content:"";position:absolute;inset:8px;border:1px solid rgba(32,40,58,.2);border-radius:50%}
+.mind-slide .triad .card:nth-child(2) .triad-label i{background:#e88c73;box-shadow:0 0 0 7px rgba(232,140,115,.16),0 0 0 14px rgba(232,140,115,.07)}
+.mind-slide .triad .card:nth-child(3) .triad-label i{background:#a99bc9;box-shadow:0 0 0 7px rgba(169,155,201,.16),0 0 0 14px rgba(169,155,201,.07)}
+.mind-slide .triad-label h3{font-size:clamp(22px,1.85vw,28px);line-height:1.1}
+.mind-slide .triad .card p{font-size:clamp(14px,1.08vw,16px);line-height:1.45;max-width:28ch}
+.mind-slide .triad .card:after{width:clamp(115px,12vw,170px);height:clamp(115px,12vw,170px);right:-42px;bottom:-45px;opacity:.85}
+.mind-slide .feature-strip{gap:clamp(10px,1vw,15px);margin-top:0}
+.mind-slide .feature-strip span{display:flex;align-items:center;min-height:76px;padding:clamp(12px,1.2vw,18px) clamp(15px,1.45vw,22px);font-size:clamp(13px,.98vw,15px);line-height:1.4}
+
+/* 3. Make the key numbers feel intentionally housed in their own round containers. */
+.visual-methods-slide .demonstration-grid{gap:clamp(14px,1.3vw,20px)}
+.visual-methods-slide .demonstration-grid .card{padding:clamp(20px,1.9vw,29px);gap:clamp(10px,.95vw,14px)}
+.visual-methods-slide .demo-mark{width:clamp(68px,6vw,88px);height:clamp(68px,6vw,88px);aspect-ratio:1;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(201,111,90,.38);border-radius:50%;background:rgba(255,255,255,.34);font:italic clamp(43px,4vw,60px)/.9 var(--serif);letter-spacing:-.06em;color:var(--coral-dark);opacity:1;box-shadow:inset 0 0 0 7px rgba(201,111,90,.07),0 0 0 7px rgba(201,111,90,.055)}
+.visual-methods-slide .demonstration-grid .card h3{font-size:clamp(22px,1.8vw,28px)}
+.visual-methods-slide .demonstration-grid .card p{font-size:clamp(14px,1.02vw,15.5px);line-height:1.43}
+
+/* 4. Shorten the central word visually so it stays fully inside the speech diagram. */
+.verbal-methods-slide .speech-orbit{width:min(29vw,300px);overflow:visible}
+.verbal-methods-slide .speech-orbit:before,.verbal-methods-slide .speech-orbit:after{content:"";position:absolute;inset:-7%;border:1px solid rgba(201,111,90,.35);border-radius:50%;transform:rotate(-24deg);pointer-events:none}
+.verbal-methods-slide .speech-orbit:after{inset:-13% 4%;border-color:rgba(169,155,201,.58);transform:rotate(34deg);border-style:dashed}
+.verbal-methods-slide .speech-core{width:44%;font-size:clamp(12px,.96vw,15px);line-height:1.18;letter-spacing:-.035em;padding:8px;overflow-wrap:anywhere;word-break:normal;transform:rotate(-5deg);box-shadow:0 0 0 7px rgba(232,140,115,.15)}
+.verbal-methods-slide .speech-word{z-index:2}
+
+/* 5. Language / reading cards: vertically centered, larger and more readable. */
+.language-materials-slide .language-grid{align-items:stretch;gap:clamp(14px,1.25vw,19px)}
+.language-materials-slide .language-grid .card{justify-content:center;align-items:stretch;padding:clamp(22px,2.05vw,31px);gap:clamp(10px,.92vw,14px)}
+.language-materials-slide .lang-subject{font-size:clamp(10px,.76vw,12px);padding:7px 12px;letter-spacing:.1em}
+.language-materials-slide .language-grid .card h3{font-size:clamp(23px,1.9vw,29px);line-height:1.1;max-width:23ch}
+.language-materials-slide .language-grid .card p{font-size:clamp(14px,1.04vw,16px);line-height:1.45}
+.language-materials-slide .language-grid .card ul{gap:clamp(7px,.62vw,10px);padding-left:1.15em}
+.language-materials-slide .language-grid .card li{font-size:clamp(13px,.98vw,15px);line-height:1.42}
+
+/* Subtle circular accents in the same visual language; no text is placed on top of another. */
+.spectrum-slide .spectrum-card:nth-child(2):after{background:rgba(169,155,201,.55);box-shadow:0 0 0 9px rgba(169,155,201,.11),0 0 0 20px rgba(169,155,201,.05)}
+.mind-slide .triad .card{border:1px solid rgba(32,40,58,.07)}
+@media(max-width:760px){
+ .spectrum-slide .spectrum-card{padding:22px;min-height:220px}
+ .spectrum-slide .spectrum-card p{font-size:15px}
+ .mind-slide .triad:before,.mind-slide .triad:after{display:none}
+ .mind-slide .triad .card{min-height:205px}
+ .visual-methods-slide .demonstration-grid .card{min-height:270px}
+ .language-materials-slide .language-grid .card{min-height:320px}
+}
+
+
+/* Keep orbital ornaments fully inside their cards so the fit script doesn't shrink typography. */
+.spectrum-slide .spectrum-card:before{right:22px;top:22px;width:clamp(105px,10.5vw,145px);height:clamp(105px,10.5vw,145px)}
+.spectrum-slide .spectrum-card:after{right:clamp(58px,5.8vw,82px);top:clamp(58px,5.8vw,82px)}
+.mind-slide .triad .card:after{width:clamp(78px,7vw,100px);height:clamp(78px,7vw,100px);right:14px;bottom:14px}
+
+@media(min-width:761px) and (max-width:1100px){
+ .verbal-methods-slide .frame{padding:4.05% 5.8% 3.7%;gap:1.8%}
+ .verbal-methods-slide .speech-grid{grid-template-columns:.76fr 1.24fr;gap:10px;min-height:0}
+ .verbal-methods-slide .speech-orbit{width:min(25vw,235px)}
+ .verbal-methods-slide .speech-grid .grid.two{gap:8px}
+ .verbal-methods-slide .speech-grid .grid.two .card{padding:clamp(9px,.95vw,12px);gap:6px}
+ .verbal-methods-slide .speech-grid .grid.two .card h3{font-size:clamp(14px,1.25vw,17px)}
+ .verbal-methods-slide .speech-grid .grid.two .card p{font-size:clamp(10px,.82vw,11px);line-height:1.28}
+}
+
+
+/* Final approved refinements: remove corner outlines from the three-sphere cards
+   and optically center the numbered circles. */
+.mind-slide .triad .card:after {
+  content: none !important;
+  display: none !important;
+}
+.visual-methods-slide .demo-mark {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  text-indent: .045em;
+  font-variant-numeric: lining-nums;
+}
+
+/* Print each full-screen 16:9 panel on its own page, preserving the screen design. */
+@page {
+  size: 13.333333in 7.5in;
+  margin: 0;
+}
+@media print {
+  html, body {
+    width: 13.333333in !important;
+    height: auto !important;
+    margin: 0 !important;
+    background: var(--paper) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .deck {
+    width: 13.333333in !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    scroll-snap-type: none !important;
+  }
+  .slide {
+    width: 13.333333in !important;
+    height: 7.5in !important;
+    min-height: 7.5in !important;
+    overflow: hidden !important;
+    break-after: page !important;
+    page-break-after: always !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+  }
+  .slide:last-child {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+  .frame {
+    width: 13.333333in !important;
+    height: 7.5in !important;
+    max-width: none !important;
+    max-height: none !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+  .progress { display: none !important; }
+}
+
+
+/* -------------------------------------------------------------------------
+   Responsive mobile layout
+   Desktop 16:9 slide design remains unchanged. On narrow screens the deck
+   becomes a natural vertical reading flow: cards stack, slides grow to fit
+   their content, and the page (not nested cards) handles vertical scrolling.
+   ------------------------------------------------------------------------- */
+@media (max-width: 760px), (max-height: 560px) and (orientation: landscape) and (max-width: 900px) {
+  html,
+  body {
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .deck {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    overflow: visible;
+    scroll-snap-type: y proximity;
+    overscroll-behavior-y: auto;
+  }
+
+  .slide {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+
+  .frame {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    max-width: none;
+    max-height: none;
+    aspect-ratio: auto;
+    overflow: visible;
+    padding: clamp(28px, 7vw, 42px) clamp(18px, 5.2vw, 26px) clamp(36px, 8vw, 48px);
+    gap: clamp(20px, 5.2vw, 28px);
+  }
+
+  .slide-head {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .eyebrow {
+    margin-bottom: 12px;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: .15em;
+  }
+
+  h2 {
+    max-width: 100%;
+    margin-bottom: 10px;
+    font-size: clamp(31px, 8.7vw, 43px);
+    line-height: 1.04;
+    letter-spacing: -.04em;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .lead {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .body-area {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    gap: 14px;
+    overflow: visible;
+  }
+
+  .body-area > .grid,
+  .grid,
+  .grid.two,
+  .grid.three,
+  .grid.four,
+  .grid.two-one,
+  .grid.one-two,
+  .triad,
+  .spectrum-grid,
+  .law-grid,
+  .behavior-grid,
+  .schedule-layout,
+  .visual-support,
+  .demonstration-grid,
+  .method-layout,
+  .transition-grid,
+  .speech-grid,
+  .question-grid,
+  .planning-grid,
+  .subject-grid,
+  .language-grid,
+  .space-grid,
+  .peer-grid,
+  .team-grid,
+  .environment-grid {
+    display: grid;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto !important;
+    grid-auto-rows: auto;
+    align-content: start;
+    gap: 12px;
+    flex: 0 0 auto;
+  }
+
+  .body-area > .grid {
+    flex: 0 0 auto;
+  }
+
+  .card {
+    width: 100%;
+    min-width: 0;
+    min-height: 0 !important;
+    height: auto;
+    padding: clamp(18px, 5vw, 23px);
+    gap: 10px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .card h3 {
+    font-size: clamp(21px, 5.5vw, 26px);
+    line-height: 1.12;
+  }
+
+  .card p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .card li {
+    font-size: 14px;
+    line-height: 1.48;
+  }
+
+  .card .tag,
+  .mini-label {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .micro {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .ribbon {
+    width: 100%;
+    padding-top: 13px;
+    font-size: clamp(18px, 4.8vw, 22px);
+    line-height: 1.32;
+  }
+
+  /* Cover: turn the overlapping desktop artwork into a calm vertical layout. */
+  .cover .frame {
+    min-height: 100svh;
+    padding: clamp(34px, 9vw, 52px) 22px 28px;
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  .cover-copy {
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .cover-copy .eyebrow {
+    max-width: 31ch;
+    margin-bottom: 20px;
+  }
+
+  .cover h1 {
+    font-size: clamp(58px, 16vw, 76px);
+    line-height: .96;
+  }
+
+  .cover-subtitle {
+    max-width: 22ch;
+    margin: 14px 0 12px 2px;
+    font-size: clamp(21px, 5.8vw, 26px);
+  }
+
+  .cover-rule {
+    margin-top: 12px;
+  }
+
+  .cover-art {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: min(100%, 390px);
+    height: auto;
+    aspect-ratio: 1.12;
+    margin: 12px auto 0;
+    flex: 0 0 auto;
+  }
+
+  .core {
+    width: 35%;
+    font-size: clamp(34px, 9vw, 48px);
+  }
+
+  .orbit-word {
+    font-size: clamp(14px, 3.8vw, 17px);
+  }
+
+  /* Spectrum and three-sphere development cards. */
+  .spectrum-slide .spectrum-card {
+    min-height: 0;
+    padding: 22px;
+    gap: 11px;
+  }
+
+  .spectrum-slide .spectrum-card .range {
+    max-width: 24ch;
+    font-size: 19px;
+  }
+
+  .spectrum-slide .spectrum-card h3 {
+    max-width: 22ch;
+    font-size: clamp(24px, 6.2vw, 29px);
+  }
+
+  .spectrum-slide .spectrum-card p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .spectrum-slide .spectrum-card:before {
+    width: 110px;
+    height: 110px;
+    top: 16px;
+    right: 16px;
+    opacity: .5;
+  }
+
+  .spectrum-slide .spectrum-card:after {
+    right: 48px;
+    top: 48px;
+  }
+
+  .spectrum-slide .schedule-foot {
+    margin-top: 0;
+    padding: 15px 16px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .mind-slide .triad {
+    height: auto;
+    gap: 12px;
+  }
+
+  .mind-slide .triad:before,
+  .mind-slide .triad:after {
+    display: none;
+  }
+
+  .mind-slide .triad .card {
+    min-height: 0;
+    padding: 22px 20px;
+    gap: 12px;
+  }
+
+  .mind-slide .triad-label {
+    gap: 12px;
+  }
+
+  .mind-slide .triad-label h3 {
+    font-size: 25px;
+  }
+
+  .mind-slide .triad .card p {
+    max-width: 34ch;
+    font-size: 15px;
+  }
+
+  .mind-slide .feature-strip {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    margin-top: 0;
+  }
+
+  .mind-slide .feature-strip span {
+    min-height: 0;
+    padding: 15px 16px;
+    font-size: 14px;
+    line-height: 1.48;
+  }
+
+  /* Four-step, numbered and legal content. */
+  .study-behavior .grid.four {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto !important;
+  }
+
+  .study-behavior .card {
+    padding: 19px;
+  }
+
+  .study-behavior .card h3 {
+    font-size: 23px;
+  }
+
+  .study-behavior .card p {
+    font-size: 15px;
+    line-height: 1.48;
+  }
+
+  .study-behavior .study-note,
+  .change-slide .change-note {
+    padding: 14px 16px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .law-card .law-code {
+    font-size: 29px;
+  }
+
+  .variants {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 0;
+    padding: 16px;
+  }
+
+  .variants strong {
+    font-size: 19px;
+    line-height: 1.25;
+  }
+
+  .variant-chips {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+  }
+
+  .numbered.organize-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin-bottom: 0;
+  }
+
+  .numbered .item {
+    padding: 16px 0;
+    gap: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .numbered .item:not(:last-child):after {
+    right: auto;
+    left: 0;
+    top: auto;
+    bottom: -4px;
+  }
+
+  .numbered small {
+    font-size: 10px;
+  }
+
+  .numbered b {
+    font-size: 21px;
+  }
+
+  .numbered span {
+    font-size: 14px;
+    line-height: 1.48;
+  }
+
+  .org-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    margin-top: 0;
+  }
+
+  .org-note {
+    padding: 9px 0 9px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Schedule: board first, explanatory cards after it. */
+  .schedule-slide .schedule-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto !important;
+    gap: 14px;
+  }
+
+  .schedule-slide .schedule-board {
+    min-height: 0;
+    padding: 18px 20px;
+    transform: none;
+  }
+
+  .board-title {
+    margin-bottom: 8px;
+    font-size: 10px;
+  }
+
+  .schedule-step {
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 9px 0;
+    font-size: 14px;
+  }
+
+  .schedule-step small {
+    font-size: 10px;
+  }
+
+  .schedule-slide .schedule-layout > div:last-child {
+    gap: 12px;
+  }
+
+  .schedule-slide .schedule-points {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+  }
+
+  .schedule-slide .schedule-points .card {
+    min-height: 0;
+    padding: 18px;
+    gap: 8px;
+  }
+
+  .schedule-slide .schedule-points .card h3 {
+    font-size: 23px;
+  }
+
+  .schedule-slide .schedule-points .card p {
+    font-size: 15px;
+    line-height: 1.48;
+  }
+
+  .schedule-slide .schedule-foot {
+    margin-top: 0;
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 1.48;
+  }
+
+  .change-slide .visual-stack {
+    gap: 12px;
+  }
+
+  .change-slide .visual-stack .card {
+    padding: 19px;
+  }
+
+  .change-slide .visual-stack .card h3 {
+    font-size: 23px;
+  }
+
+  .change-slide .visual-stack .card p {
+    font-size: 15px;
+    line-height: 1.48;
+  }
+
+  /* Diagram, language and subject material blocks. */
+  .visual-methods-slide .demonstration-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .visual-methods-slide .demonstration-grid .card {
+    min-height: 0;
+    justify-content: flex-start;
+    padding: 21px;
+  }
+
+  .visual-methods-slide .demo-mark {
+    width: 70px;
+    height: 70px;
+    font-size: 48px;
+  }
+
+  .visual-methods-slide .demonstration-grid .card h3 {
+    font-size: 24px;
+  }
+
+  .visual-methods-slide .demonstration-grid .card p {
+    font-size: 15px;
+  }
+
+  .method-layout .card,
+  .planning-grid .card,
+  .subject-grid .card,
+  .language-grid .card,
+  .space-grid .card,
+  .peer-detail .card,
+  .team-grid .card {
+    min-height: 0;
+  }
+
+  .subcards,
+  .question-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .subcard,
+  .text-example {
+    padding: 14px;
+  }
+
+  .subcard b,
+  .text-example b {
+    font-size: 18px;
+  }
+
+  .subcard span,
+  .text-example p {
+    font-size: 14px;
+    line-height: 1.46;
+  }
+
+  .transition-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .time-card {
+    min-height: 125px;
+    padding: 14px;
+  }
+
+  .time-card strong {
+    font-size: 28px;
+  }
+
+  .time-card span {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .speech-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .verbal-methods-slide .speech-orbit,
+  .speech-orbit {
+    width: min(76vw, 270px);
+    margin: 4px auto 12px;
+  }
+
+  .verbal-methods-slide .speech-core {
+    width: 45%;
+    padding: 8px;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  .speech-word {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .question-list .subcard {
+    min-height: 0;
+  }
+
+  .question-grid .card,
+  .planning-grid .card {
+    padding: 20px;
+  }
+
+  .condition {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .condition b {
+    font-size: 20px;
+  }
+
+  .subject-symbol {
+    font-size: 34px;
+  }
+
+  .subject-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .subject-list span {
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .language-materials-slide .language-grid .card {
+    min-height: 0;
+    padding: 21px;
+    gap: 12px;
+  }
+
+  .language-materials-slide .language-grid .card h3 {
+    max-width: 100%;
+    font-size: 24px;
+  }
+
+  .language-materials-slide .language-grid .card p {
+    font-size: 15px;
+    line-height: 1.48;
+  }
+
+  .language-materials-slide .language-grid .card li {
+    font-size: 14px;
+    line-height: 1.48;
+  }
+
+  /* School-space diagrams and the final summary. */
+  .space-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .space-tiles span {
+    min-width: 0;
+    padding: 11px;
+    font-size: 15px;
+    line-height: 1.35;
+    overflow-wrap: break-word;
+  }
+
+  .space-tiles span:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .tech-slide .tech-note {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+    margin-top: 0;
+    padding: 15px 16px;
+    font-size: 14px;
+    line-height: 1.48;
+  }
+
+  .tech-slide .tech-note strong {
+    font-size: 16px;
+  }
+
+  .peer-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .peer-quote {
+    max-width: 18ch;
+    font-size: clamp(29px, 7.4vw, 36px);
+  }
+
+  .peer-grid .center-y .lead {
+    margin-top: 10px !important;
+  }
+
+  .peer-detail {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .peer-guides {
+    grid-column: auto;
+    padding: 15px 16px;
+    font-size: 14px;
+    line-height: 1.48;
+  }
+
+  .team-grid .card {
+    padding-left: 23px;
+  }
+
+  .environment-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .zone-map {
+    min-height: 270px;
+    grid-template-columns: 1.1fr .9fr;
+    grid-template-rows: repeat(2, minmax(110px, 1fr));
+    gap: 8px;
+  }
+
+  .zone {
+    min-width: 0;
+    padding: 12px;
+    font-size: clamp(17px, 4.5vw, 21px);
+    overflow-wrap: break-word;
+  }
+
+  .zone small {
+    font-size: 8px;
+    line-height: 1.4;
+  }
+
+  .environment-details {
+    gap: 10px;
+  }
+
+  .environment-details .card {
+    padding: 18px;
+  }
+
+  .final-slide .system-bar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    flex-wrap: initial;
+    gap: 8px;
+  }
+
+  .final-slide .system-bar span {
+    display: flex;
+    min-width: 0;
+    min-height: 48px;
+    flex: initial;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    text-align: center;
+  }
+
+  .final-slide .system-bar span:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .final-slide .ribbon {
+    font-size: 18px;
+  }
+
+  /* Keep progress visible without trapping the reader in a nested scroller. */
+  .progress {
+    position: fixed;
+    z-index: 30;
+    bottom: 0;
+    height: 3px;
+  }
+}
+
+@media (max-width: 380px) {
+  .frame {
+    padding-right: 17px;
+    padding-left: 17px;
+  }
+
+  h2 {
+    font-size: clamp(29px, 8.8vw, 34px);
+  }
+
+  .card {
+    padding: 17px;
+  }
+
+  .space-tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .space-tiles span:last-child {
+    grid-column: auto;
+  }
+
+  .transition-timeline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px), (max-height: 560px) and (orientation: landscape) and (max-width: 900px) {
+  /* Preserve the visual-stack cards' content height instead of shrinking them. */
+  .visual-stack {
+    min-height: 0;
+    height: auto;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+  }
+
+  .visual-stack .card {
+    flex: 0 0 auto;
+  }
+
+  /* Keep the speech-diagram orbit inside the phone viewport. */
+  .verbal-methods-slide .speech-orbit:before,
+  .verbal-methods-slide .speech-orbit:after {
+    inset: 2%;
+    transform: none;
+  }
+}
