@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<style>
+.conclusion-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.05vw,17px);height:100%;min-height:0}
+.conclusion-card{min-width:0;border-radius:17px;padding:clamp(16px,1.45vw,24px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:clamp(9px,.9vw,14px);border:1px solid rgba(32,40,58,.06)}
+.conclusion-card.coral{background:#efd8cf}.conclusion-card.lilac{background:#e3ddec}.conclusion-card.blue{background:#dce8e9}.conclusion-card.yellow{background:#eee3c5}.conclusion-card.green{background:#e2e6cf}
+.conclusion-number{width:clamp(42px,3.3vw,54px);height:clamp(42px,3.3vw,54px);flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.56);color:var(--coral-dark);font:italic 500 clamp(17px,1.35vw,22px)/1 var(--serif);font-variant-numeric:lining-nums}
+.conclusion-card h3{margin:0;font:500 clamp(18px,1.42vw,23px)/1.08 var(--serif);letter-spacing:-.025em}.conclusion-card p{margin:0;color:#59606d;font-size:clamp(11px,.78vw,13px);line-height:1.43}
+.conclusion-ribbon{flex:0 0 auto;border-top:1px solid var(--line);padding-top:clamp(10px,.9vw,15px);font:italic clamp(16px,1.35vw,22px)/1.22 var(--serif);color:var(--ink)}.conclusion-ribbon em{color:var(--coral-dark)}
+.references-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2vw,32px);width:100%;height:100%;min-height:0;align-items:start}
+.references-column{min-width:0;margin:0;padding-left:2em;display:grid;align-content:start;gap:clamp(6px,.55vw,9px)}
+.references-column li{min-width:0;padding-left:.25em;color:#5d6370;font-size:clamp(10px,.68vw,12.5px);line-height:1.34;overflow-wrap:anywhere;hyphens:auto}
+.references-column li::marker{color:var(--coral-dark);font:600 1.06em var(--serif)}
+@media(max-width:760px),(max-height:560px) and (orientation:landscape) and (max-width:900px){
+.conclusion-grid{grid-template-columns:minmax(0,1fr);gap:11px;height:auto}.conclusion-card{min-height:0;padding:18px 19px;gap:9px}.conclusion-number{width:42px;height:42px;font-size:18px}.conclusion-card h3{font-size:22px}.conclusion-card p{font-size:14px;line-height:1.48}.conclusion-ribbon{font-size:18px;line-height:1.35}
+.references-grid{grid-template-columns:minmax(0,1fr);gap:10px;height:auto}.references-column{gap:8px;padding-left:2em}.references-column li{font-size:14px;line-height:1.45;padding-left:.15em}
+}
+@media print{.conclusion-card p{font-size:11px}.references-column li{font-size:10.5px;line-height:1.3}}
+</style>
+</head>
+<body>
+<section class="slide content conclusion-slide" aria-label="Заключение">
+<div class="frame">
+<header class="slide-head wide"><p class="eyebrow">Заключение</p><h2>Не отдельные меры, а <em>целостная система</em></h2><p class="lead">Обучение ребёнка с РАС в условиях общего образования охватывает все стороны школьной жизни.</p></header>
+<div class="body-area"><div class="conclusion-grid">
+<article class="conclusion-card coral"><span class="conclusion-number">01</span><h3>Организационные</h3><p>Адаптированная образовательная программа и индивидуальный учебный план, постепенное включение в класс, сопровождение тьютором; при необходимости — малокомплектный класс или индивидуальная форма обучения.</p></article>
+<article class="conclusion-card lilac"><span class="conclusion-number">02</span><h3>Методические</h3><p>Наглядные, практические и словесные методы: расписания и визуальные опоры, посильные задания и поддержка переходов, простые инструкции и адаптация текстов.</p></article>
+<article class="conclusion-card blue"><span class="conclusion-number">03</span><h3>Содержательные</h3><p>Специально подобранные дидактические материалы, приспособления для письма, учебники и пособия, схемы и алгоритмы; разумное применение технических средств.</p></article>
+<article class="conclusion-card yellow"><span class="conclusion-number">04</span><h3>Коррекционно-развивающие</h3><p>Команда специалистов: тьютор, психолог, логопед и дефектолог. Индивидуальные занятия и групповая работа с классом, направленная на принятие ребёнка сверстниками.</p></article>
+<article class="conclusion-card green"><span class="conclusion-number">05</span><h3>Средовые</h3><p>Организация питания и медицинское сопровождение, обеспечивающие комфортное пребывание ребёнка в школе.</p></article>
+</div><div class="conclusion-ribbon">Совокупность специальных условий делает возможными <em>успешное включение и социальную адаптацию</em>; результат всегда индивидуален.</div></div>
+</div></section>
+<section class="slide content sources-slide" aria-label="Источники информации">
+<div class="frame">
+<header class="slide-head wide"><p class="eyebrow">Источники доклада</p><h2>Список использованных <em>источников</em></h2></header>
+<div class="body-area"><div class="references-grid">
+<ol class="references-column" start="1">
+<li>Об образовании в Российской Федерации : федеральный закон от 29.12.2012 № 273-ФЗ (с изм. и доп.) // Собрание законодательства Российской Федерации. — 2012. — № 53 (ч. 1). — Ст. 7598.</li>
+<li>Об утверждении федерального государственного образовательного стандарта начального общего образования обучающихся с ограниченными возможностями здоровья : приказ Министерства образования и науки Российской Федерации от 19.12.2014 № 1598. — Текст : электронный // Официальный интернет-портал правовой информации. — URL: http://pravo.gov.ru.</li>
+<li>Об утверждении федеральной адаптированной образовательной программы начального общего образования для обучающихся с ограниченными возможностями здоровья : приказ Министерства просвещения Российской Федерации от 24.11.2022 № 1023. — Текст : электронный // Официальный интернет-портал правовой информации. — URL: http://pravo.gov.ru.</li>
+<li>Специальный федеральный государственный стандарт начального образования детей с расстройствами аутистического спектра : основные положения // Альманах Института коррекционной педагогики РАО. — URL: http://almanah.ikprao.ru/articles/almanah-14/specialnyj-federalnyj-gosudarstvennyj-standart-nachalnogo.</li>
+<li>Аржакаева, Т. А. Психологическая азбука. Программа развивающих занятий в 1–4 классе / Т. А. Аржакаева, И. В. Вачков, А. Х. Попова. — М. : Генезис, 2012.</li>
+<li>Гуськова, А. В. Роль «модели психического» при решении мыслительных задач / А. В. Гуськова // Вопросы психологии. — 2008.</li>
+<li>Заломаева, Н. Б. Опыт обучения аутичных детей начальным школьным навыкам / Н. Б. Заломаева. — URL: http://autist.narod.ru/p045.html.</li>
+<li>Как научить ребёнка с аутизмом учиться : практическое руководство для педагогов и специалистов образовательных учреждений / составитель Э. М. Паллот ; пер. с англ. — Пермь, 2004.</li>
+<li>Крюкова, С. В. Удивляюсь, злюсь, боюсь, хвастаюсь и радуюсь. Программы эмоционального развития детей дошкольного и младшего школьного возраста : практическое пособие / С. В. Крюкова, Н. П. Слободяник. — М. : Генезис, 2002.</li>
+<li>Лаврентьева, Н. Б. Обучение детей с аутизмом осмысленному чтению / Н. Б. Лаврентьева // Дефектология. — 2009. — № 1. — С. 33–44.</li>
+</ol>
+<ol class="references-column" start="11">
+<li>Лаврентьева, Н. Б. Обучение чтению детей с аутизмом: создание «личного букваря» / Н. Б. Лаврентьева // Дефектология. — 2008. — № 6. — С. 45–53.</li>
+<li>Лаврентьева, Н. Б. Формирование учебного поведения у аутичных детей — дошкольников / Н. Б. Лаврентьева // Дефектология. — 2008. — № 4. — С. 52–63 ; № 5. — С. 26–35.</li>
+<li>Лебедев, В. А. Дидактические аспекты организации учебных занятий / В. А. Лебедев. — URL: http://www.autism.ru/read.asp?id=96&vol=50.</li>
+<li>Лебединский, В. В. Эмоциональные нарушения в детском возрасте и их коррекция / В. В. Лебединский, О. С. Никольская, Е. Р. Баенская, М. М. Либлинг. — М. : Изд-во Московского университета, 1990.</li>
+<li>Никольская, О. С. Аутичный ребёнок: пути помощи / О. С. Никольская, Е. Р. Баенская, М. М. Либлинг. — М. : Теревинф, 1997.</li>
+<li>Никольская, О. С. Дети и подростки с аутизмом. Психологическое сопровождение / О. С. Никольская, Е. Р. Баенская, М. М. Либлинг. — М. : Теревинф, 2005. — (Особый ребёнок).</li>
+<li>Никольская, О. С. Ребёнок с аутизмом в обычной школе / О. С. Никольская, Т. Фомина, С. Цыпотан. — М. : Чистые пруды, 2006.</li>
+<li>Никольская, О. С. Трудности школьной адаптации детей с аутизмом / О. С. Никольская // Особый ребёнок: исследования и опыт помощи. — М. : Центр лечебной педагогики ; Теревинф, 1998.</li>
+<li>Никольская, О. С. Проблемы обучения аутичных детей / О. С. Никольская // Дефектология. — 1995. — № 1.</li>
+<li>Шоплер, Э. Поддержка аутичных и отстающих в развитии детей : сборник упражнений для специалистов и родителей / Э. Шоплер, М. Ланзинд, Л. Ватерс. — Минск : БелАПДИ «Открытые двери», 1997.</li>
+</ol>
+</div></div>
+</div></section>
+</body></html>
