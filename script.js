@@ -1,8 +1,25 @@
-(() => {
+(async () => {
   const deck = document.querySelector('.deck');
+  if (!deck) return;
+
+  // Load the two closing screens before initializing slide navigation and progress.
+  try {
+    const response = await fetch('./closing-slides.html');
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const closingDocument = new DOMParser().parseFromString(await response.text(), 'text/html');
+    closingDocument.head.querySelectorAll('style').forEach((style) => {
+      document.head.append(style.cloneNode(true));
+    });
+    closingDocument.body.querySelectorAll('.slide').forEach((slide) => {
+      deck.append(slide);
+    });
+  } catch (error) {
+    console.warn('Closing slides could not be loaded. Use the site over HTTP/HTTPS.', error);
+  }
+
   const slides = [...document.querySelectorAll('.slide')];
   const progress = document.querySelector('.progress span');
-  if (!deck || !slides.length || !progress) return;
+  if (!slides.length || !progress) return;
 
   const mobileQuery = window.matchMedia(
     '(max-width: 760px), (max-height: 560px) and (orientation: landscape) and (max-width: 900px)'
@@ -32,7 +49,7 @@
     }
 
     const maxScroll = Math.max(0, scrollHeight - viewportHeight);
-    progress.style.width = `${maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0}%`;
+    progress.style.width = (maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0) + '%';
   };
 
   const updateCurrentMobile = () => {
